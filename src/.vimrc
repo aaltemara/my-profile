@@ -1,6 +1,6 @@
 "
 " Created: Fri 06 Jan 2017 12:42:52 PM EST 
-" Modified: Mon 30 Jan 2017 11:47:59 AM EST by q823711 on vsd-quartz01
+" Modified: Mon 30 Jan 2017 11:51:47 AM EST by q823711
 "
 
 " My settings
@@ -28,7 +28,7 @@ endif
 autocmd BufEnter * EnableTimestamp
 let timestamp_regexp = '\v\C%(<%(Last %([cC]hanged?|modified)|Modified)\s*:\s+)@<=\a+ \d{2} \a+ \d{4} \d{2}:\d{2}:\d{2}%(\s+[AP]M)?%(\s+\a+)?(\s+by.*)?|TIMESTAMP'
 
-let timestamp_rep = '%a %d %b %Y %I:%M:%S %p %Z by #u on #h'
+let timestamp_rep = '%a %d %b %Y %I:%M:%S %p %Z by #u'
 
 " Syntastic settings
 set statusline+=%#warningmsg#

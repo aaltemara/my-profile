@@ -1,8 +1,3 @@
-"
-" Created: Fri 06 Jan 2017 12:42:52 PM EST 
-" Modified: Mon 30 Jan 2017 11:51:47 AM EST by q823711
-"
-
 " My settings
 syntax on
 "set debug=msg

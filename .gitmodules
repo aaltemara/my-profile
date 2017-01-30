@@ -40,3 +40,6 @@
 [submodule "src/.vim/bundle/vim-markdown"]
 	path = src/.vim/bundle/vim-markdown
 	url = git://github.com/plasticboy/vim-markdown
+[submodule "src/.bash-git-prompt"]
+	path = src/.bash-git-prompt
+	url = https://github.com/magicmonty/bash-git-prompt.git

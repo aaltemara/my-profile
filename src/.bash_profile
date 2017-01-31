@@ -7,6 +7,12 @@ LOG_DIR=~/logs
 # Pretty green prompt (opposite of our red root prompt)
 export PS1='\[\e[0;49;90m\][\[\e[32m\]\u\[\e[0;49;90m\]@\[\e[1;49;32m\]\h\[\e[0;49;90m\]] \[\e[2;49;0m\] \w\[\e[90m\]\$\[\e[0m\] '
 
+# Terminal stuff
+# Uncomment to prevent terminal from 'freezing' on 'Ctrl+s'
+#stty -ixon
+# Allow any key to 'unfreeze' terminal when stopped by 'Ctrl+s'
+stty ixany
+
 # Vim stuff
 if which vim &>/dev/null; then
     alias vi=vim

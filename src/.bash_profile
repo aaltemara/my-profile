@@ -14,7 +14,8 @@ export PS1='\[\e[0;49;90m\][\[\e[32m\]\u\[\e[0;49;90m\]@\[\e[1;49;32m\]\h\[\e[0;
 stty ixany
 
 ## SSH Agent
-if [[ -e ~/.ssh ]]; then
+# Add any found .ssh/*id_rsa keys to our ssh-agent
+if [[ -e ~/.ssh && $(find ~/.ssh -type f -name "*id_rsa" | wc -l) -gt 0 ]]; then
     # Start agent if not running or not valid
     if ! test $SSH_AUTH_SOCK; then
        eval $(ssh-agent -s)

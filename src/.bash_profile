@@ -7,7 +7,19 @@ LOG_DIR=~/logs
 # Pretty green prompt (opposite of our red root prompt)
 PS1='\[\e[0;49;90m\][\[\e[32m\]\u\[\e[0;49;90m\]@\[\e[1;49;32m\]\h\[\e[0;49;90m\]] \[\e[2;49;0m\] \w\[\e[90m\]\$\[\e[0m\]'
 
-# Vim stuff
+## SSH Agent
+if [[ -e ~/.ssh ]]; then
+    # Start agent if not running or not valid
+    if ! test $SSH_AUTH_SOCK; then
+       eval $(ssh-agent -s)
+    fi
+    # Add our keys
+    for key_file in ~/.ssh/*id_rsa; do
+        ssh-add $key_file
+    done
+fi
+
+## Vim
 if which vim &>/dev/null; then
     alias vi=vim
     alias realvi=/usr/bin/vi
@@ -17,7 +29,7 @@ if which vim &>/dev/null; then
     fi
 fi
 
-# Tmux stuff
+## Tmux
 if which tmux &>/dev/null; then
     # We're in a tmux session
     if [[ -n $TMUX ]]; then
@@ -42,7 +54,7 @@ if which tmux &>/dev/null; then
     fi
 fi
 
-# git stuff
+## git
 if which git &>/dev/null; then
     # Source bash-git-prompt module, if found
     if [[ -e ~/.bash-git-prompt/gitprompt.sh ]]; then

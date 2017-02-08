@@ -5,24 +5,19 @@ ANSIFILTER=
 LOG_DIR=~/logs
 
 # Pretty green prompt (opposite of our red root prompt)
-export PS1='\[\e[0;49;90m\][\[\e[32m\]\u\[\e[0;49;90m\]@\[\e[1;49;32m\]\h\[\e[0;49;90m\]] \[\e[2;49;0m\] \w\[\e[90m\]\$\[\e[0m\] '
-
-# Terminal stuff
-# Uncomment to prevent terminal from 'freezing' on 'Ctrl+s'
-#stty -ixon
-# Allow any key to 'unfreeze' terminal when stopped by 'Ctrl+s'
-stty ixany
+PS1='\[\e[0;49;90m\][\[\e[32m\]\u\[\e[0;49;90m\]@\[\e[1;49;32m\]\h\[\e[0;49;90m\]] \[\e[2;49;0m\] \w\[\e[90m\]\$\[\e[0m\]'
 
 ## SSH Agent
-# Add any found .ssh/*id_rsa keys to our ssh-agent
-if [[ -e ~/.ssh && $(find ~/.ssh -type f -name "*id_rsa" | wc -l) -gt 0 ]]; then
+if [[ -e ~/.ssh ]]; then
     # Start agent if not running or not valid
     if ! test $SSH_AUTH_SOCK; then
        eval $(ssh-agent -s)
     fi
-    # Add our keys
+    # Add our keys, if not already added
     for key_file in ~/.ssh/*id_rsa; do
-        ssh-add $key_file
+        if ! ssh-add -l | grep -q $(basename $key_file); then
+            ssh-add $key_file
+        fi
     done
 fi
 
@@ -65,8 +60,7 @@ fi
 if which git &>/dev/null; then
     # Source bash-git-prompt module, if found
     if [[ -e ~/.bash-git-prompt/gitprompt.sh ]]; then
-      export GIT_PROMPT_ONLY_IN_REPO=1
-      export GIT_PROMPT_THEME=TruncatedPwd_WindowTitle_C1
+      GIT_PROMPT_ONLY_IN_REPO=1
       source ~/.bash-git-prompt/gitprompt.sh
     fi
 

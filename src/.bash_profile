@@ -15,8 +15,11 @@ if [[ -e ~/.ssh ]]; then
     fi
     # Add our keys, if not already added
     for key_file in ~/.ssh/*id_rsa; do
-        if ! ssh-add -l | grep -q $(basename $key_file); then
+        if ! ssh-add -l | grep -q /$(basename $key_file); then
+            echo "Adding $key_file to our ssh-agent"
             ssh-add $key_file
+        else
+            echo "$key_file is alread in our ssh-agent. Not adding."
         fi
     done
 fi

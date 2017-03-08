@@ -13,7 +13,7 @@ PS1='\[\e[0;49;90m\][\[\e[32m\]\u\[\e[0;49;90m\]@\[\e[1;49;32m\]\h\[\e[0;49;90m\
 ## SSH Agent
 if [[ -e ~/.ssh ]]; then
     # Start agent if not running or not valid
-    if ! test $SSH_AUTH_SOCK; then
+    if ! test $SSH_AUTH_SOCK || ! ssh-add -l &>/dev/null; then
        eval $(ssh-agent -s)
     fi
     # Add our keys, if not already added

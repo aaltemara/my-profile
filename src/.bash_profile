@@ -5,7 +5,7 @@ ANSIFILTER=
 LOG_DIR=~/logs
 
 # Pretty green prompt (opposite of our red root prompt)
-PS1='\[\e[0;49;90m\][\[\e[32m\]\u\[\e[0;49;90m\]@\[\e[1;49;32m\]\h\[\e[0;49;90m\]] \[\e[2;49;0m\] \w\[\e[90m\]\$\[\e[0m\]'
+PS1='\[\e[0;49;90m\][\[\e[32m\]\u\[\e[0;49;90m\]@\[\e[1;49;32m\]\h\[\e[0;49;90m\]] \[\e[2;49;0m\] \w\[\e[90m\]\$\[\e[0m\] '
 
 ## Update PATH
 [[ -e ~/bin ]] && PATH=~/bin:$PATH

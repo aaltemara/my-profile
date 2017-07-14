@@ -35,8 +35,9 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
-let g:backup_directory = ~/backup/vim
-let g:backup_purge = 10
+set backup
+set backupdir-=.
+set backupdir^=~/backup/vim,~/tmp,/tmp
 
 " Enable Pathogen
 runtime bundle/vim-pathogen/autoload/pathogen.vim

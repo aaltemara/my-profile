@@ -43,3 +43,6 @@
 [submodule "src/.bash-git-prompt"]
 	path = src/.bash-git-prompt
 	url = https://github.com/magicmonty/bash-git-prompt.git
+[submodule "src/.vim/bundle/dracula-theme"]
+	path = src/.vim/bundle/dracula-theme
+	url = git@github.com:dracula/vim.git

@@ -46,3 +46,9 @@
 [submodule "src/.vim/bundle/dracula-theme"]
 	path = src/.vim/bundle/dracula-theme
 	url = git@github.com:dracula/vim.git
+[submodule "src/.vim/bundle/vim-session"]
+	path = src/.vim/bundle/vim-session
+	url = git@github.com:xolox/vim-session.git
+[submodule "src/.vim/bundle/vim-misc"]
+	path = src/.vim/bundle/vim-misc
+	url = git@github.com:xolox/vim-misc.git

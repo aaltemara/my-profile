@@ -1,7 +1,15 @@
 " My settings
+
+" Enable Pathogen
+runtime bundle/vim-pathogen/autoload/pathogen.vim
+execute pathogen#infect()
+
 syntax on
 "set debug=msg
 filetype plugin indent on
+
+" Save open buffers
+:set viminfo^=%
 
 set lines=40
 set columns=80
@@ -44,8 +52,3 @@ let g:session_verbose_messages = 0
 set backup
 set backupdir-=.
 set backupdir^=~/backup/vim,~/tmp,/tmp
-
-" Enable Pathogen
-runtime bundle/vim-pathogen/autoload/pathogen.vim
-execute pathogen#infect()
-

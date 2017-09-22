@@ -22,7 +22,7 @@ if [[ -e ~/.ssh ]]; then
             echo "Adding $key_file to our ssh-agent"
             ssh-add $key_file
         else
-            echo "$key_file is alread in our ssh-agent. Not adding."
+            echo "$key_file is already in our ssh-agent. Not adding."
         fi
     done
 fi

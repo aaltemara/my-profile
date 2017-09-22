@@ -74,3 +74,8 @@ if which git &>/dev/null; then
     alias my-git-commit="git add -A .; git commit -m 'undocumented'; git push origin master"
 fi
 
+# Source .bashrc
+if [ -f ~/.bashrc ]; then
+    . ~/.bashrc
+fi
+

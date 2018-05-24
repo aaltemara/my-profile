@@ -1,3 +1,4 @@
+# Global .gitignore file
 
 ## Log folders
 log
@@ -19,6 +20,9 @@ tags
 
 ## SVN
 .svn/
+
+## Git
+.git/
 
 # GPG
 secring.*
@@ -42,3 +46,20 @@ secring.*
 # .nfs files are created when an open file is removed but is still being accessed
 .nfs*
 
+# Terraform
+*tfstate
+.terraform
+*tfstate.d
+*tfstate.lock.info
+
+# OS-X
+.DS_Store
+
+# Locally generated object files
+*.pyc
+*.pyo
+
+# Misc
+*.backup
+*.tmp
+*.bak

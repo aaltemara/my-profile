@@ -1,0 +1,18 @@
+#!/bin/bash
+
+code_bin_dir=$(dirname $0)
+
+DIFF_FILE=/tmp/diff.$$
+
+cd $code_bin_dir/../src
+
+for o in $(find -maxdepth 1 -mindepth 1 | grep -v .ssh); do
+    if diff --brief $o ~/$o | grep -v 'Common subdirectories' > $DIFF_FILE; then
+        echo "*** $o differs"
+        cat $DIFF_FILE
+        echo
+    fi
+done
+
+echo "Done"
+

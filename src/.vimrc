@@ -1,5 +1,8 @@
 " My settings
 
+set nocompatible
+filetype off
+
 " Enable Pathogen
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 execute pathogen#infect()
@@ -45,11 +48,17 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 " vim-session settings
-let g:session_autoload = 'yes'
-let g:session_autosave = 'yes'
-let g:session_autosave_to = 'default'
-let g:session_verbose_messages = 0
+"let g:session_autoload = 'yes'
+let g:session_autoload = 'no'
+"let g:session_autosave = 'yes'
+"let g:session_autosave_to = 'default'
+"let g:session_verbose_messages = 0
 
 set backup
 set backupdir-=.
 set backupdir^=~/backup/vim,~/tmp,/tmp
+
+"JSON folding
+:setlocal foldmethod=syntax
+nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
+vnoremap <Space> zf

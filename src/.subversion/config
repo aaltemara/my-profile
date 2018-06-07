@@ -1,0 +1,15 @@
+# Subversion config file
+
+[auth]
+store-passwords = no
+store-auth-creds = no
+
+[helpers]
+
+[tunnels]
+
+[miscellany]
+global-ignores = .git *.pyc *.pyo *~ *.swp .terraform terraform.tfstate.d *.pfx id_rsa *.crt *.pem env.tfvars
+
+[auto-props]
+

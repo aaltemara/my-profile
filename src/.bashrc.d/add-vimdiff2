@@ -1,0 +1,10 @@
+function vimdiff2() {
+    if [[ -z $2 || -n $3 ]]; then
+        echo "Shortcut for vimdiff DIR/FILE FILE"
+        echo "Usage: vdimdiff2 DIR FILE"
+    fi
+    DIR=$1
+    FILE=$2
+    echo vimdiff $DIR/$FILE $FILE
+    vimdiff $DIR/$FILE $FILE
+    }

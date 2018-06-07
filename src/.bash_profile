@@ -1,4 +1,4 @@
-# Anthony's .bash_profile
+# Custom .bash_profile
 
 ## Functions
 pathmunge() {
@@ -23,18 +23,22 @@ PS1='\[\e[0;49;90m\][\[\e[32m\]\u\[\e[0;49;90m\]@\[\e[1;49;32m\]\h\[\e[0;49;90m\
 [[ -e ~/bin ]] && pathmunge ~/bin
 
 ## SSH Agent
+agent_socket=$(ls -1rt /tmp/ssh-*/agent* | tail -n 1)
+if [[ -n $agent_socket ]]; then
+    export SSH_AUTH_SOCK=$agent_socket
+else
+    eval $(ssh-agent -s)
+fi
+
+## SSH Keys
 if [[ -e ~/.ssh ]]; then
-    # Start agent if not running or not valid
-    if ! test $SSH_AUTH_SOCK || ! ssh-add -l &>/dev/null; then
-       eval $(ssh-agent -s)
-    fi
     # Add our keys, if not already added
     for key_file in ~/.ssh/*id_rsa; do
         if ! ssh-add -l | grep -q /$(basename $key_file); then
             echo "Adding $key_file to our ssh-agent"
             ssh-add $key_file
-        else
-            echo "$key_file is already in our ssh-agent. Not adding."
+        #else
+        #    echo "$key_file is already in our ssh-agent. Not adding."
         fi
     done
 fi
@@ -76,12 +80,6 @@ fi
 
 ## git
 if which git &>/dev/null; then
-    # Source bash-git-prompt module, if found
-    if [[ -e ~/.bash-git-prompt/gitprompt.sh ]]; then
-      GIT_PROMPT_ONLY_IN_REPO=1
-      source ~/.bash-git-prompt/gitprompt.sh
-    fi
-
     # TODO: Make this accept a nice comment, so we're not breaking the law
     alias my-git-commit="git add -A .; git commit -m 'undocumented'; git push origin master"
 fi
@@ -90,4 +88,3 @@ fi
 if [ -f ~/.bashrc ]; then
     . ~/.bashrc
 fi
-

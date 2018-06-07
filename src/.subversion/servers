@@ -1,0 +1,7 @@
+# Subversion servers config file
+
+[groups]
+
+[global]
+store-passwords = no
+store-plaintext-passwords = no

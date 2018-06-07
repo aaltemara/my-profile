@@ -12,7 +12,7 @@ syntax on
 filetype plugin indent on
 
 " Save open buffers
-:set viminfo^=%
+set viminfo^=%
 
 set lines=40
 set columns=80
@@ -59,6 +59,10 @@ set backupdir-=.
 set backupdir^=~/backup/vim,~/tmp,/tmp
 
 "JSON folding
-:setlocal foldmethod=syntax
+setlocal foldmethod=syntax
 nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
 vnoremap <Space> zf
+
+set pastetoggle=<F3>
+set laststatus=2
+

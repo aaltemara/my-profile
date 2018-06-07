@@ -51,4 +51,10 @@
 	url = git@github.com:xolox/vim-session.git
 [submodule "src/.vim/bundle/vim-misc"]
 	path = src/.vim/bundle/vim-misc
-	url = git@github.com:xolox/vim-misc.git
+    url = git@github.com:xolox/vim-misc.git
+[submodule "src/.vim/bundle/Vundle.vim"]
+    path = src/.vim/bundle/Vundle.vim
+    url = https://github.com/VundleVim/Vundle.vim.git
+[submodule "src/.vim/bundle/vim-json"]
+    path = src/.vim/bundle/vim-json
+    url = https://github.com/elzr/vim-json.git

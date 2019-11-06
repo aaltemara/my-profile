@@ -4,12 +4,31 @@ set nocompatible
 filetype off
 
 " Enable Pathogen
-runtime bundle/vim-pathogen/autoload/pathogen.vim
-execute pathogen#infect()
+"runtime bundle/vim-pathogen/autoload/pathogen.vim
+"execute pathogen#infect()
+
+" Vundle Config [START]
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+" Vundle plugins to load
+"Plugin 'dense-analysis/ale'
+Plugin 'Yggdroot/indentLine.git'
+Plugin 'zhaocai/timestamp.vim.git'
+Plugin 'elzr/vim-json.git'
+Plugin 'tpope/vim-sensible.git'
+Plugin 'xolox/vim-misc' " Dependency of vim-session
+Plugin 'xolox/vim-session'
+Plugin 'xolox/vim-reload'
+Plugin 'xolox/vim-markdown'
+Plugin 'vim-syntastic/syntastic.git'
+
+call vundle#end() 
+filetype plugin indent on
+" Vundle Config [END]
 
 syntax on
 "set debug=msg
-filetype plugin indent on
 
 " Save open buffers
 set viminfo^=%
@@ -47,6 +66,9 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
+" ALE settings
+"let g:ale_sign_error = '>>'
+
 " vim-session settings
 "let g:session_autoload = 'yes'
 let g:session_autoload = 'no'
@@ -66,3 +88,7 @@ vnoremap <Space> zf
 set pastetoggle=<F3>
 set laststatus=2
 
+" indentLine
+let g:indentLine_color_tty_light = 7 " (default: 4)
+let g:indentLine_color_dark = 1 " (default: 2)
+let g:indentLine_char_list = ['|', '¦', '┆', '┊']

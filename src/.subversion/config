@@ -9,7 +9,7 @@ store-auth-creds = no
 [tunnels]
 
 [miscellany]
-global-ignores = .git *.pyc *.pyo *~ *.swp .terraform terraform.tfstate.d *.pfx id_rsa *.crt *.pem env.tfvars
+global-ignores = .git *.pyc *.pyo *~ *.swp .terraform terraform.tfstate.d *.pfx id_rsa *.crt *.pem *~ *.swp env.tfvars
 
 [auto-props]
 

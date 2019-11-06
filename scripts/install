@@ -1,11 +1,24 @@
 #!/bin/bash
 
-code_bin_dir=$(dirname $0)
+NEED_BINS="pylint pylint3"
+SRC_DIR=$(dirname $0)
 
-cd $code_bin_dir/../src
+# Check for needed binaries
+for bin in $NEED_BINS; do
+    which $bin &>/dev/null || { echo "[ERROR] $bin not found in PATH."; exit 1; }
+done
 
-echo rsync -vr --exclude `basename $(dirname $0)` ./ ~/
-rsync -vlr --exclude `basename $(dirname $0)` ./ ~/
+cd $SRC_DIR/../src
+
+echo rsync -lr --exclude `basename $(dirname $0)` ./ ~/
+rsync -lr --exclude `basename $(dirname $0)` ./ ~/
+
+echo "Install all Vundle Plugins"
+vim +PluginInstall +qall
+
+# Creating needed directories
+[[ -d ~/backup/vim || -d ~/tmp ]] || mkdir -p ~/backup/vim
+
 
 echo "Done"
 

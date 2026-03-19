@@ -33,6 +33,10 @@ syntax on
 " Save open buffers
 set viminfo^=%
 
+" Autoread and autoreload open files
+set autoread
+au CursorHold * checktime
+
 set lines=40
 set columns=80
 set autoindent
@@ -65,6 +69,12 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:syntastic_python_pylint_exe = 'python3 -m pylint'
+let g:syntastic_python_python_exec = 'python3'
+let g:syntastic_python_checkers = ['python']
+
+" Python mode, use python3
+let g:pymode_python = 'python3'
 
 " ALE settings
 "let g:ale_sign_error = '>>'
@@ -91,4 +101,5 @@ set laststatus=2
 " indentLine
 let g:indentLine_color_tty_light = 7 " (default: 4)
 let g:indentLine_color_dark = 1 " (default: 2)
-let g:indentLine_char_list = ['|', '¦', '┆', '┊']
+let g:indentLine_char_list = ['|', '¦', '|', '¦']
+

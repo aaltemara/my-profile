@@ -67,6 +67,7 @@ if which git &>/dev/null; then
     # Source bash-git-prompt module, if found
     if [[ -e ~/.bash-git-prompt/gitprompt.sh ]]; then
       GIT_PROMPT_ONLY_IN_REPO=1
+      # shellcheck disable=SC1090
       source ~/.bash-git-prompt/gitprompt.sh
     fi
 

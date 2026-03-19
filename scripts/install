@@ -1,6 +1,7 @@
 #!/bin/bash
 
-NEED_BINS="pylint pylint3"
+#NEED_BINS="pylint pylint3"
+NEED_BINS="pylint"
 SRC_DIR=$(dirname $0)
 
 # Check for needed binaries
